@@ -1,0 +1,561 @@
+{% extends "base.html" %} {% block content %}
+<!-- Carousel Start -->
+<div class="carousel">
+  <div class="container-fluid">
+    <div class="owl-carousel">
+      <div class="carousel-item">
+        <div class="carousel-img">
+          <img src="/static/img/feature-1.jpg" alt="Image" />
+        </div>
+        <div class="carousel-text">
+          <h1>AI.<span>Expertise.</span>Success.</h1>
+          <p>
+            Powered by cutting-edge AI, expert insights, and personalized feedback, PrepXpert delivers the perfect blend
+            of innovation and experience to help you master every interview and group discussion."
+          </p>
+          <div class="carousel-btn">
+            <!-- <a class="btn custom-btn" href="">View Menu</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-img">
+          <img src="/static/img/feature-2.jpg" alt="Image" />
+        </div>
+        <div class="carousel-text">
+          <h1>AI.<span>Expertise.</span>Success.</h1>
+          <p>
+            With AI-powered analysis, personalized coaching, and real-time feedback, PrepXpert ensures you're prepared
+            to stand out in any interview scenario.
+          </p>
+          <div class="carousel-btn">
+            <!-- <a class="btn custom-btn" href="">View Menu</a>
+            <a class="btn custom-btn" href="">Order Now!</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-img">
+          <img src="/static/img/feature-3.jpg" alt="Image" />
+        </div>
+        <div class="carousel-text">
+          <h1>Expert Prep.<span> Instant Feedback</span></h1>
+          <p>
+            PrepXpert delivers expert guidance and real-time feedback, ensuring you're always interview-ready with
+            precision and speed
+          </p>
+          <div class="carousel-btn">
+            <!-- <a class="btn custom-btn" href="">View Menu</a>
+            <a class="btn custom-btn" href="">Book Table</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Carousel End -->
+
+<!-- About Start -->
+<div class="about">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="about-img">
+          <img src="/static/img/about.jpg" alt="Image" />
+          <button type="button" class="btn-play" data-toggle="modal"
+            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-content">
+          <div class="section-header">
+            <p>About Us</p>
+            <h2>Mastering Interviews Since 2024</h2>
+          </div>
+          <div class="about-text">
+            <p>
+              At PrepXpert, we believe that everyone deserves the chance to shine in their interviews. Founded in 2024,
+              our platform combines cutting-edge AI technology with expert insights to provide personalized coaching and
+              real-time feedback. We are dedicated to helping you master the skills necessary for success in interviews
+              and group discussions.
+            </p>
+            <p>
+              With a focus on innovation and user experience, PrepXpert is your partner in building confidence and
+              achieving your career goals. Our mission is to empower individuals to excel by equipping them with the
+              tools they need to navigate the challenges of the interview process effectively.
+            </p>
+            <a class="btn custom-btn" href="">Let's Start</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+
+<!-- Video Modal Start-->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <!-- <iframe class="embed-responsive-item" src="https://youtu.be/HG68Ymazo18?si=40cyx663i4lI7kEB" id="video"
+            allowscriptaccess="always" allow="autoplay"></iframe> -->
+          <img src="/static/img/about.png" alt="Image">
+          <iframe class="embed-responsive-item" src="" id="video"
+            allowscriptaccess="always" allow="autoplay"></iframe>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Video Modal End -->
+
+<!-- Feature Start -->
+<div class="feature">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="section-header">
+          <p>Why Choose Us</p>
+          <h2>Our Key Features</h2>
+        </div>
+        <div class="feature-text">
+          <div class="feature-img">
+            <div class="row">
+              <div class="col-6">
+                <img src="/static/img/feature-1.jpg" alt="Image" />
+              </div>
+              <div class="col-6">
+                <img src="/static/img/feature-2.jpg" alt="Image" />
+              </div>
+              <div class="col-6">
+                <img src="/static/img/feature-3.jpg" alt="Image" />
+              </div>
+              <div class="col-6">
+                <img src="/static/img/feature-4.jpg" alt="Image" />
+              </div>
+            </div>
+          </div>
+          <p>
+            PrepXpert offers a comprehensive platform for effective interview preparation, providing AI-driven mock
+            interviews for realistic practice and a community forum for collaborative learning. Connect with mentors for
+            personalized guidance, access relevant courses to enhance your skills, and utilize an intuitive dashboard
+            for performance analysis, ensuring you are well-prepared for success.
+          </p>
+          <a class="btn custom-btn" href="{% url 'feature' %}">Let's Start</a>
+        </div>
+      </div>
+      <!-- <div class="col-lg-7">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-cooking"></i>
+              <h3>World's best Chef</h3>
+              <p>
+                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit
+                facilis ornare velit non vulput metus tortor
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-vegetable"></i>
+              <h3>Natural ingredients</h3>
+              <p>
+                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit
+                facilis ornare velit non vulput metus tortor
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-medal"></i>
+              <h3>Best quality products</h3>
+              <p>
+                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit
+                facilis ornare velit non vulput metus tortor
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-meat"></i>
+              <h3>Fresh vegetables & Meet</h3>
+              <p>
+                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit
+                facilis ornare velit non vulput metus tortor
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-courier"></i>
+              <h3>Fastest door delivery</h3>
+              <p>
+                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit
+                facilis ornare velit non vulput metus tortor
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-fruits-and-vegetables"></i>
+              <h3>Ground beef & Low fat</h3>
+              <p>
+                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit
+                facilis ornare velit non vulput metus tortor
+              </p>
+            </div>
+          </div>
+        </div> -->
+      <div class="col-lg-7">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <!-- <i class="flaticon-cooking"></i> -->
+              <h3>Mock AI Interview</h3>
+              <p>
+                Engage in realistic mock interviews powered by AI to refine your skills and boost your confidence.
+              </p>
+              <a class="btn custom-btn" href="{% url 'feature' %}">Try it Out</a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <!-- <i class="flaticon-vegetable"></i> -->
+              <h3>Community Forum</h3>
+              <p>
+                Connect with peers in our community forum to share insights, tips, and experiences for collaborative
+                learning.
+              </p>
+              <a class="btn custom-btn" href="{% url 'feature' %}">Try it Out</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <!-- <i class="flaticon-medal"></i> -->
+              <h3>Connect with Experts</h3>
+              <p>
+                Access personalized guidance from industry experts and mentors to enhance your interview preparation.
+              </p>
+              <a class="btn custom-btn" href="{% url 'feature' %}">Try it Out</a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="feature-item">
+              <!-- <i class="flaticon-meat"></i> -->
+              <h3>Relevant Courses</h3>
+              <p>
+                Explore a variety of courses tailored to improve your skills and knowledge in interview techniques.
+              </p>
+              <a class="btn custom-btn" href="{% url 'feature' %}">Try it Out</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-courier"></i>
+              <h3>Performance Dashboard</h3>
+              <p>
+                Utilize our intuitive dashboard for detailed analysis and feedback on your interview performance.
+              </p>
+              <a class="btn custom-btn" href="{% url 'feature' %}">Let's Start</a>
+            </div>
+          </div> -->
+          <!-- <div class="col-sm-6">
+            <div class="feature-item">
+              <i class="flaticon-fruits-and-vegetables"></i>
+              <h3>Collaborative Discussions</h3>
+              <p>
+                Participate in group discussions to enhance your teamwork and communication skills for interviews.
+              </p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Feature End -->
+
+<!-- Food Start -->
+<!-- <div class="food">
+            <div class="container">
+                <div class="row align-items-center">
+                {% for cat in categories %}
+                    <div class="col-md-4">
+                        <div class="food-item">
+                            <i class="{{cat.icon}}"></i>
+                            <h2>{{cat.name}}</h2>
+                            <p>
+                                {{cat.description}}
+                            </p>
+                            <a href="{% url 'all_dishes' %}?q={{cat.id}}">View Menu</a>
+                        </div>
+                    
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div> -->
+<!-- Food End -->
+
+<!-- Menu Start -->
+<!-- <div class="menu">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Food Menu</p>
+                    <h2>Delicious Food Menu</h2>
+                </div>
+                <div class="menu-tab">
+                    
+                    <ul class="nav nav-pills justify-content-center">
+                        {% for category in menu %}
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#c-{{category.cat_id}}">{{category.cat_name}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="tab-content">
+                        {% for category in menu %}
+                        <div id="c-{{category.cat_id}}" class="container tab-pane">
+                            <div class="row">
+                                {% if category.items|length == 0 %}
+                                 <div class="col-md-12 text-center"><h3>No Items under {{category.cat_name}} Yet..</h3></div>
+                                {% else %}
+                                <div class="col-lg-7 col-md-12">
+                                {% for item in category.items %}
+                                    <div class="menu-item">
+                                        <div class="menu-img">
+                                            <img src="/media/{{item.image}}" alt="Image">
+                                        </div>
+                                        <div class="menu-text">
+                                            <h3><span><a href="{% url 'dish' id=item.id %}">{{item.name}}</a></span> 
+                                                {% if item.price != item.discounted_price %}
+                                                 <strong><del>&dollar;{{item.price}}</del></strong>
+                                                {% endif %}
+                                                 <strong>&dollar;{{item.discounted_price}}</strong>
+                                            </h3>
+                                            <p>{{item.ingredients}}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-block">
+                                    <img src="/media/{{category.cat_img}}" style="height:100%;width:100%;" alt="Image">
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div> -->
+<!-- Menu End -->
+
+<!-- Team Start -->
+<div class="team">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Our Team</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="team-item">
+          <div class="team-img">
+            <img src="/static/img/team-1.jpg" alt="Image" />
+            <div class="team-social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="team-text">
+            <h2>Saylee Shirke</h2>
+            <p>CEO</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-item">
+          <div class="team-img">
+            <img src="/static/img/team-2.jpg" alt="Image" />
+            <div class="team-social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="team-text">
+            <h2>Meghana Kovatte</h2>
+            <p>Founder</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-item">
+          <div class="team-img">
+            <!-- <img src="/static/img/team-3.jpg" alt="Image" /> -->
+            <img src="/static/img/team-3.jpg" alt="Image" />
+            <div class="team-social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="team-text">
+            <h2>Nidhi Mhatre</h2>
+            <p>Co-Founder</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-item">
+          <div class="team-img">
+            <img src="/static/img/team-4.jpg" alt="Image" />
+            <div class="team-social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="team-text">
+            <h2>Saachi Kokate</h2>
+            <p>Investor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team End -->
+
+<!-- News Section Start -->
+<div class="news">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Latest News</h2>
+    </div>
+    <div class="row">
+      {% for article in articles|slice:":4" %}
+      <div class="col-lg-3 col-md-6">
+        <div class="news-item">
+          <div class="news-img">
+            {% if article.urlToImage %}
+            <img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
+            {% else %}
+            <img src="/static/img/news-placeholder.jpg" alt="News Placeholder" />
+            {% endif %}
+            <div class="news-social">
+              <a href="{{ article.url }}" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="news-text">
+            <h2>{{ article.title|truncatechars:50 }}</h2>
+            <p>{{ article.description|truncatechars:100 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<!-- News Section End -->
+
+<!-- Testimonial Start -->
+<div class="testimonial">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Testimonials</h2>
+      <p>What our customers have to say</p>
+    </div>
+    <div class="owl-carousel testimonials-carousel">
+      <div class="testimonial-item">
+        <div class="testimonial-img">
+          <img src="/static/img/testimonial-1.jpg" alt="Image" />
+        </div>
+        <p>
+          PrepXpert transformed my interview preparation. The mock AI interviews gave me the confidence I needed to excel!
+        </p>
+        <h2>Julie Naik</h2>
+        <h3>Software Engineer @Microsoft</h3>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-img">
+          <img src="/static/img/testimonial-2.jpg" alt="Image" />
+        </div>
+        <p>
+          PrepXpert's performance dashboard provided me with insights I never knew I needed. It truly elevated my interview skills
+        </p>
+        <h2>Atharva Patil</h2>
+        <h3>HR Consultant @Ernst&Young</h3>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-img">
+          <img src="/static/img/testimonial-3.jpg" alt="Image" />
+        </div>
+        <p>
+          The community forum at PrepXpert helped me connect with like-minded individuals. It made my preparation journey so much easier
+        </p>
+        <h2>Sneha Gupta</h2>
+        <h3>MBA Student</h3>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-img">
+          <img src="/static/img/testimonial-4.jpg" alt="Image" />
+        </div>
+        <p>
+          The personalized feedback from mentors at PrepXpert was invaluable. I landed my dream job thanks to their support!
+        </p>
+        <h2>Vikram Rao</h2>
+        <h3>Data Analyst @Deloitte</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+
+
+<!-- chatbot Start -->
+<div id="chatbot-bubble" class="chatbot-bubble">
+  <i class="fas fa-comments"></i>
+</div>
+
+<!-- Chatbot Interface -->
+<div id="chatbot-interface" class="chatbot-interface">
+  <div class="chatbot-header">
+    <h3>Chatbot</h3>
+    <button id="close-chatbot">&times;</button>
+  </div>
+  <div id="chatbot-messages" class="chatbot-messages"></div>
+  <div class="chatbot-input">
+    <input type="text" id="user-input" placeholder="Type your message...">
+    <button id="send-message">Send</button>
+  </div>
+</div>
+<!-- chatbot end -->
+{% endblock %}
