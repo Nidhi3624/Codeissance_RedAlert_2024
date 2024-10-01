@@ -49,26 +49,44 @@ def index(request):
     context['menu'] = dishes
 
     # Add news API functionality
-    newsapi = NewsApiClient(api_key='aa908021ff1c4dd4a032f3ecb4942bd3')
-    top_headlines = newsapi.get_top_headlines(country='us', language='en', page_size=5)
-    context['articles'] = top_headlines['articles']
+    # newsapi = NewsApiClient(api_key='aa908021ff1c4dd4a032f3ecb4942bd3')
+    # top_headlines = newsapi.get_top_headlines(country='us', language='en', page_size=5)
+    # context['articles'] = top_headlines['articles']
 
-    # def get_faang_job_news():
-    #     newsapi = NewsApiClient(api_key='aa908021ff1c4dd4a032f3ecb4942bd3')
+    # # def get_faang_job_news():
+    # #     newsapi = NewsApiClient(api_key='aa908021ff1c4dd4a032f3ecb4942bd3')
     
-    #     # Define keywords related to placements, jobs, and FAANG companies
-    #     keywords = 'jobs OR placements'
+    # #     # Define keywords related to placements, jobs, and FAANG companies
+    # #     keywords = 'jobs OR placements'
     
-    #     # Get news articles
-    #     all_articles = newsapi.get_everything(q=keywords,
-    #                                       language='en',
-    #                                       sort_by='publishedAt',
-    #                                       page_size=5)
+    # #     # Get news articles
+    # #     all_articles = newsapi.get_everything(q=keywords,
+    # #                                       language='en',
+    # #                                       sort_by='publishedAt',
+    # #                                       page_size=5)
     
-    #     return all_articles['articles']
-    # # Usage
-    # context = {}
-    # context['articles'] = get_faang_job_news()
+    # #     return all_articles['articles']
+    # # # Usage
+    # # context = {}
+    # # context['articles'] = get_faang_job_news()
+
+    # return render(request, 'index.html', context)
+    def get_placement_interview_news():
+        newsapi = NewsApiClient(api_key='aa908021ff1c4dd4a032f3ecb4942bd3')
+        
+        # Define keywords related to placements and interviews
+        keywords = 'engineering OR microsoft OR oracle  '
+        
+        # Get news articles
+        all_articles = newsapi.get_everything(q=keywords,
+                                              language='en',
+                                              sort_by='publishedAt',
+                                              page_size=10)  # Increased to 10 articles
+        
+        return all_articles['articles']
+
+    # Fetch placement and interview news
+    context['articles'] = get_placement_interview_news()
 
     return render(request, 'index.html', context)
 
@@ -257,9 +275,71 @@ def payment_cancel(request):
 
 
 
+# def chatbot_response(request):
+#     if request.method == 'POST':
+#         query = request.POST.get('query', '')
+#         response = generate_api_response(query)
+#         return JsonResponse({'response': response})
+#     return JsonResponse({'error': 'Invalid request method'})
+
 def chatbot_response(request):
     if request.method == 'POST':
-        query = request.POST.get('query', '')
-        response = generate_api_response(query)
-        return JsonResponse({'response': response})
-    return JsonResponse({'error': 'Invalid request method'})
+        query = request.POST.get('query', '')  # Retrieve the user's query from the POST request
+        response = generate_api_response(query)  # Generate a response using an API function
+        return JsonResponse({'response': response})  # Return the response as JSON
+    return JsonResponse({'error': 'Invalid request method'})  # Handle invalid request methods
+
+
+
+def mentor_index(request):
+    return render(request,'mentor_index.html')
+
+def mentor_userProfile(request):
+    return render(request,'mentor_userProfile.html')
+
+def courses_index(request):
+    return render(request,'courses_index.html')
+
+def courses_list(request):
+    return render(request,'courses_list.html')
+
+def courses_quiz(request):
+    return render(request,'courses_quiz.html')
+
+
+from django.shortcuts import render,redirect
+from .models import * 
+from .forms import * 
+# Create your views here.
+
+def forum_index(request):
+    forums=forum.objects.all()
+    count=forums.count()
+    discussions=[]
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+
+    context={'forums':forums,
+              'count':count,
+              'discussions':discussions}
+    return render(request,'forum_index.html',context)
+
+def addInForum(request):
+    form = CreateInForum()
+    if request.method == 'POST':
+        form = CreateInForum(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context ={'form':form}
+    return render(request,'addInForum.html',context)
+
+def addInDiscussion(request):
+    form = CreateInDiscussion()
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context ={'form':form}
+    return render(request,'addInDiscussion.html',context)

@@ -21,7 +21,7 @@ def generate_api_response(query):
             max_tokens=500,
             temperature=0.5
         )
-        api_response = ''.join(response)
+        api_response = response.generations[0].text
         return api_response
     except Exception as e:
         return f"Error: {str(e)}"

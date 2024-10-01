@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="/static/css/mentor_style.css" rel="stylesheet" />
+    <style>
+        /* Styling for appointments */
+        .appointment {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .appointment button {
+            margin-left: 10px;
+            background-color: #fbaf32;
+            border: none;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .appointment button:hover {
+            background-color: #e99c28;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Appointment Scheduler</h2>
+                </div>
+                <div class="col-12">
+                    <a href="mentor_index.html">Schedule</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>User Profile</h2>
+        <h3>Scheduled Appointments:</h3>
+        <div id="userAppointments"></div>
+        <button onclick="closeProfile()">Close</button>
+    </div>
+
+    <script>
+        const userAppointmentsList = document.getElementById('userAppointments');
+        
+        function displayUserAppointments() {
+            const appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            userAppointmentsList.innerHTML = appointments.length
+                ? appointments.map(appointment => `
+                    <div class="appointment">
+                        ${appointment.expertName} on ${appointment.date} at ${appointment.time} 
+                        <button onclick="cancelAppointment('${appointment.expertName}', '${appointment.date}', '${appointment.time}')">Cancel</button>
+                    </div>
+                `).join('')
+                : '<div>No appointments scheduled.</div>';
+        }
+
+        function closeProfile() {
+            window.history.back(); // Go back to the previous page
+        }
+
+        function cancelAppointment(expertName, date, time) {
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+            appointments = appointments.filter(app => app.expertName !== expertName || app.date !== date || app.time !== time);
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+            displayUserAppointments(); // Refresh the appointments list
+        }
+
+        // Display appointments on page load
+        displayUserAppointments();
+    </script>
+</body>
+</html>

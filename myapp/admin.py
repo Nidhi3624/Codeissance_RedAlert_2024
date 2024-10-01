@@ -1,5 +1,6 @@
 from django.contrib import admin
 from myapp.models import Contact, Category, Team, Dish, Profile,Order
+from .models import *
 
 admin.site.site_header = "homepage | Admin"
 
@@ -22,3 +23,6 @@ admin.site.register(Team, TeamAdmin )
 admin.site.register(Dish, DishAdmin )
 admin.site.register(Profile)
 admin.site.register(Order)
+
+admin.site.register(forum)
+admin.site.register(Discussion)

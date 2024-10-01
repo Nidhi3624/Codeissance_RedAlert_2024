@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="/static/img/icon/favicon.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comaptible" content="IE=edge">
+	<title>LearnEd</title>
+	<meta name="desciption" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/courses_style.css">
+	<script type="text/javascript" src="/static/js/courses_script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script>
+		$(window).on('scroll', function(){
+  			if($(window).scrollTop()){
+  			  $('nav').addClass('black');
+ 			 }else {
+ 		   $('nav').removeClass('black');
+ 		 }
+		})
+	</script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<header id="header">
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Relevant Courses</h2>
+                </div>
+                <div class="col-12 text-center"> <!-- Added text-center class for centering links -->
+                    <h3><a href="{% url 'courses_list' %}">Technology</a></h3>
+                    <h3><a href="{% url 'courses_list' %}">Law</a></h3>
+                    <h3><a href="{% url 'courses_list' %}">Design</a></h3>
+                    <h3><a href="{% url 'courses_list' %}">Sports</a></h3>
+					<h3><a href="{% url 'courses_quiz' %}">Quizzes</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="head-container">
+	<div class="quote">
+		<p>Unlock Your Potential with Our Courses!</p>
+		<h5>Explore a range of expertly crafted courses designed to elevate your interview skills and boost your confidence. Whether you're a beginner or looking to refine your techniques, our AI-powered platform provides personalized learning paths tailored to your needs. Start your journey toward interview success today!</h5>
+		<div class="play">
+			<img src="/static/img/icon/play.png" alt="play"><span><a href="https://youtu.be/jS4aFq5-91M?si=XpvsqddqwZedz6ut" target="_blank">Watch Now</a></span>
+		</div>
+	</div>
+	<div class="svg-image">
+		<img src="/static/img/extra/svg1.jpg" alt="svg">
+	</div>
+</div>
+
+
+<!-- Some Popular Subjects -->
+	<div class="title">
+		<span>Popular Courses on PrepXpert</span>
+	</div>
+	<br><br>
+	<div class="course">
+	
+		</div></center>
+		<div class="cbox">
+		<div class="det"><a href="{% url 'courses_list' %}"><img src="/static/img/icon/tech.png">Technical Courses</a></div>
+		<div class="det"><a href="subjects/computer_courses.html#law"><img src="/static/img/icon/law.png"> Law</a></div>
+		<div class="det"><a href="subjects/computer_courses.html#design"><img src="/static/img/icon/design.png">Design</a></div>
+		<div class="det det-last"><a href="subjects/computer_courses.html#sports"><img src="/static/img/icon/sport.png">Sports</a></div>
+		</div>
+	</div>
+
+	
+<!-- ABOUT -->
+	<div class="diffSection" id="about_section">
+		<center><p style="font-size: 50px; padding: 100px">About</p></center>
+		<div class="about-content">
+				<div class="side-image">
+					<img class="sideImage" src="/static/img/extra/e3.jpg">
+				</div>
+				<div class="side-text">
+					<h2>Why You Need to Take Courses?</h2>
+					<p>In today’s competitive job market, simply having the right qualifications isn't enough. Employers are looking for candidates who can present themselves confidently, think critically under pressure, and communicate effectively. Taking interview preparation courses can help you develop these essential skills, giving you a distinct advantage over other candidates. With structured guidance and expert insights, these courses can teach you how to handle tough questions, articulate your strengths, and showcase your expertise in a way that resonates with employers.
+
+						Moreover, interview preparation courses provide a focused and personalized approach to learning. Instead of navigating the vast amount of information available online, these courses streamline the most relevant and effective strategies, saving you time and effort. By taking these courses, you'll also gain access to real-world examples, mock interviews, and AI-driven feedback, helping you refine your approach and improve your performance. Whether you're new to interviewing or want to fine-tune your skills, these courses can equip you with the confidence and knowledge to succeed.</p>
+				</div>
+		</div>
+	</div>
+
+
+<!-- Sliding Information -->
+	<div class="marqu"></div>
+
+</body>
+</html>

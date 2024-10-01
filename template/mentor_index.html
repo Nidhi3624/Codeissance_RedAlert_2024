@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduler</title>
+    <link href="/static/css/mentor_style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Appointment Scheduler</h2>
+                </div>
+                <div class="col-12">
+                    <a href="{% url 'mentor_userProfile' %}">Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <h2>Schedule an Appointment</h2>
+        <select id="categorySelect">
+            <option value="">Select a category</option>
+            <option value="tech">Technology</option>
+            <option value="law">Law</option>
+            <option value="design">Design</option>
+            <option value="architecture">Architecture</option>
+        </select>
+
+        <div id="expertCards"></div>
+
+        <div id="appointmentForm" class="hidden">
+            <h3>Book Appointment with <span id="expertName"></span></h3>
+            <input type="date" id="appointmentDate" />
+            <input type="time" id="appointmentTime" />
+            <button id="confirmAppointment">Confirm Appointment</button>
+        </div>
+
+        <div id="confirmation" class="hidden">
+            <p>Appointment booked successfully!</p>
+        </div>
+    </div>
+
+    <script src="/static/js/mentor_script.js"></script>
+</body>
+</html>

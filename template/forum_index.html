@@ -1,0 +1,238 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFlair discussion forum</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <style>
+        .box{
+            border: 4px solid black;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+        <h2 class="jumbotron">
+            Currently active forums: {{count}}
+            <form method="POST" action="{% url 'addInForum' %}">
+                {% csrf_token %}
+            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+            </form>
+        </h2>
+            <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+            
+            
+            {%for forum in forums %}
+            
+                <div class="card box container">
+                    <br>
+                    <h5 class="card-title">
+                        <a href='{{forum.link}}'><h3>{{forum.topic}}</h3></a> 
+                        <div class="card-body container">
+                                <p>{{forum.description}}</p>
+                            </h5>
+                            <hr>
+                            <p> By: {{forum.name}}</p>
+                            email- {{forum.email}}
+                            <hr>     
+                            <h4>Views from other users</h4>
+                            {%for discuss in discussions%}
+                            {%for objs in discuss%}  
+                            {% if objs.forum == forum %}
+                               {{objs.discuss}}
+                               <br>
+                            {% endif %}
+                            {%endfor%}
+                            {%endfor%}
+                            <form method="POST" action="{% url 'addInDiscussion' %}">
+                                {% csrf_token %}
+                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <br>
+            
+            {%endfor%}
+          
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFlair discussion forum</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .jumbotron {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .card-title {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            margin-bottom: 0;
+        }
+        .card-title a {
+            color: #343a40;
+            text-decoration: none;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        hr {
+            margin: 1rem 0;
+        }
+
+        .page-header {
+            position: relative;
+            margin-bottom: 45px;
+            padding: 150px 0 90px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/page-header.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+.page-header h2 {
+    position: relative;
+    color: #fbaf32;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.page-header a {
+    position: relative;
+    padding: 0 12px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.page-header a:hover {
+    color: #ffffff;
+}
+
+.page-header a::after {
+    position: absolute;
+    content: "/";
+    width: 8px;
+    height: 8px;
+    top: -1px;
+    right: -7px;
+    text-align: center;
+    color: #fbaf32;
+}
+
+.page-header a:last-child::after {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .page-header h2 {
+        font-size: 35px;
+    }
+    
+    .page-header a {
+        font-size: 18px;
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Community Forum</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Community Forum</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2 class="jumbotron text-center">
+            Currently active forums: {{count}}
+            <form method="POST" action="{% url 'addInForum' %}">
+                {% csrf_token %}
+                <button class="btn btn-success mt-3">Add more</button>
+            </form>
+        </h2>
+        
+        {% for forum in forums %}
+        <div class="card">
+            <div class="card-title">
+                <a href='{{forum.link}}'><h3 class="text-center">{{forum.topic}}</h3></a>
+            </div>
+            <div class="card-body">
+                <p>{{forum.description}}</p>
+                <hr>
+                <p><strong>By:</strong> {{forum.name}}</p>
+                <p><strong>Email:</strong> {{forum.email}}</p>
+                <hr>
+                <h4>Views from other users</h4>
+                {% for discuss in discussions %}
+                    {% for objs in discuss %}  
+                        {% if objs.forum == forum %}
+                            <p>{{objs.discuss}}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                <form method="POST" action="{% url 'addInDiscussion' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-success">Add more</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
